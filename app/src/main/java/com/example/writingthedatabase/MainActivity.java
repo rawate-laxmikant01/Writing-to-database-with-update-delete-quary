@@ -3,6 +3,7 @@ package com.example.writingthedatabase;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -42,5 +43,9 @@ public class MainActivity extends AppCompatActivity {
         Log.e("Row Id","*********"+rowId );
 
         Toast.makeText(this, " Data Inserted Sucessfully\n" + user_name + "\n " + password_name + "\n " + rowId, Toast.LENGTH_SHORT).show();
+    }
+
+    public void updateData(View view) {
+        startActivity(new Intent(MainActivity.this,update.class));
     }
 }

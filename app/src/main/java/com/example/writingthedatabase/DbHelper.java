@@ -1,5 +1,6 @@
 package com.example.writingthedatabase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -27,4 +28,16 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public boolean updateData(String user,String pass,String name){
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put("username",user);
+        values.put("password",pass);
+
+        db.update("user_login",values,"username=?",new String[]{String.valueOf(name)});
+        return true;
+
+    }
+
 }
